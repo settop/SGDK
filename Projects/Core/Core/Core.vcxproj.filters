@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="..\..\..\Source\Core\Core.h" />
+    <ClInclude Include="..\..\..\Source\Core\TypeDefs.h" />
+    <ClInclude Include="..\..\..\Source\Core\Utils.h" />
+    <ClInclude Include="..\..\..\Source\Core\SmartPointer.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\Source\Core\Utils.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\Source\Core\Utils.inl" />
+  </ItemGroup>
+</Project>
