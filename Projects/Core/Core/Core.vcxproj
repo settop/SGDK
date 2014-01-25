@@ -61,25 +61,25 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <OutDir>$(ProjectDir)..\..\Libs</OutDir>
+    <OutDir>$(ProjectDir)..\..\Libs\</OutDir>
     <IncludePath>$(ProjectDir)..\..\..\Source;$(IncludePath)</IncludePath>
     <LibraryPath>$(OutDir);$(LibraryPath)</LibraryPath>
     <SourcePath>$(ProjectDir)..\..\..\Source;$(SourcePath)</SourcePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <OutDir>$(ProjectDir)..\..\Libs</OutDir>
+    <OutDir>$(ProjectDir)..\..\Libs\</OutDir>
     <IncludePath>$(ProjectDir)..\..\..\Source;$(IncludePath)</IncludePath>
     <LibraryPath>$(OutDir);$(LibraryPath)</LibraryPath>
     <SourcePath>$(ProjectDir)..\..\..\Source;$(SourcePath)</SourcePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'">
-    <OutDir>$(ProjectDir)..\..\Libs</OutDir>
+    <OutDir>$(ProjectDir)..\..\Libs\</OutDir>
     <IncludePath>$(ProjectDir)..\..\..\Source;$(IncludePath)</IncludePath>
     <LibraryPath>$(OutDir);$(LibraryPath)</LibraryPath>
     <SourcePath>$(ProjectDir)..\..\..\Source;$(SourcePath)</SourcePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Final|Win32'">
-    <OutDir>$(ProjectDir)..\..\Libs</OutDir>
+    <OutDir>$(ProjectDir)..\..\Libs\</OutDir>
     <IncludePath>$(ProjectDir)..\..\..\Source;$(IncludePath)</IncludePath>
     <LibraryPath>$(OutDir);$(LibraryPath)</LibraryPath>
     <SourcePath>$(ProjectDir)..\..\..\Source;$(SourcePath)</SourcePath>
@@ -146,6 +146,7 @@
     <ClCompile Include="..\..\..\Source\Core\Utils.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\..\Source\Core\SmartPointer.inl" />
     <None Include="..\..\..\Source\Core\Utils.inl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

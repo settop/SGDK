@@ -1,24 +1,14 @@
 #pragma once
 
 template <typename T, uint32 Layer>
-class StaticInitableClass
-{
-public:
-	StaticInitableClass();
-private:	
-	virtual void _StaticInit();
-	virtual void _StaticShutdown();
-};
-
-template <typename T, uint32 Layer>
-StaticInitableClass::StaticInitableClass
+StaticInitableClass<T, Layer>::StaticInitableClass
 (
 ) : StaticInitableBase(_layer)
 {
 }
 
 template <typename T, uint32 Layer>
-void StaticInitableClass::_StaticInit
+void StaticInitableClass<T, Layer>::_StaticInit
 (
 )
 {
@@ -26,7 +16,7 @@ void StaticInitableClass::_StaticInit
 }
 
 template <typename T, uint32 Layer>
-void StaticInitableClass::_StaticShutdown
+void StaticInitableClass<T, Layer>::_StaticShutdown
 (
 )
 {
@@ -35,4 +25,4 @@ void StaticInitableClass::_StaticShutdown
 
 
 template <typename T, uint32 Layer>
-static StaticInitableClass<T, Layer> StaticInitable::s_staticInitable;
+StaticInitableClass<T, Layer> StaticInitable<T, Layer>::s_staticInitable;

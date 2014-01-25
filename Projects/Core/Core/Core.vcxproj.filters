@@ -11,5 +11,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\Source\Core\Utils.inl" />
+    <None Include="..\..\..\Source\Core\SmartPointer.inl" />
   </ItemGroup>
 </Project>

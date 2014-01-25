@@ -9,6 +9,22 @@
 
 //---------------------------------------------------------------------------------
 
+#ifdef S_DEBUGGING
+	#define Assert( _cond )
+	#define Verify( _cond, _msg )
+	#define VerifyF( _cond, _msg )
+	#define Error( _msg )
+	#define ErrorF( _msg )
+#else
+	#define Assert( _cond )
+	#define Verify( _cond, _msg )
+	#define VerifyF( _cond, _msg )
+	#define Error( _msg )
+	#define ErrorF( _msg )
+#endif
+
+//---------------------------------------------------------------------------------
+
 class StaticInitableBase
 {
 public:
