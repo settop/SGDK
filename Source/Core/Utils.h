@@ -1,6 +1,8 @@
 #pragma once
 
 #include <Core\TypeDefs.h>
+#include <Winuser.h>
+#include <WinBase.h>
 
 #define Bit( _bit ) ( 1 << (_bit) )
 #define IsBitSet( _value, _bit ) (((_value) & (Bit(_bit))) != 0)
@@ -10,11 +12,50 @@
 //---------------------------------------------------------------------------------
 
 #ifdef S_DEBUGGING
-	#define Assert( _cond )
-	#define Verify( _cond, _msg )
-	#define VerifyF( _cond, _msg )
-	#define Error( _msg )
-	#define ErrorF( _msg )
+	#define AssertMessage( _msg ) \
+	{\
+		static bool assertIgnored = false;\
+		if(!assertIgnored)\
+		{\
+			int msgboxID = MessageBoxA\
+			(\
+				nullptr,\
+				_msg,\
+				"Runtime Assert",\
+				MB_ICONWARNING | MB_ABORTRETRYIGNORE | MB_DEFBUTTON1\
+			);\
+			switch(msgboxID)\
+			{\
+			case IDABORT:\
+				DebugBreak();\
+				break;\
+			case IDRETRY:\
+				break;\
+			case IDIGNORE:\
+				assertIgnored = true;\
+				break;\
+			}\
+		}\
+	}
+
+	#define Assert( _cond ) if(!(_cond)) AssertMessage( "Assert failed: " #_cond );
+	#define Verify( _cond, _msg ) if(!(_cond)) AssertMessage( "Assert failed: " #_cond "\n" _msg );
+	#define Error( _msg ) AssertMessage( _msg )
+	#define VerifyF( _cond, _msgFormat, ... ) \
+	{\
+		if(!(_cond))\
+		{\
+			char messageBuffer[2048];\
+			sprintf(messageBuffer, "Assert failed: %s\n" _msgFormat, #_cond, __VA__ARGS__);\
+			AssertMessage(messageBuffer);\
+		}\
+	}
+	#define ErrorF( _msgFormat, ...  )\
+	{\
+		char messageBuffer[2048];\
+		sprintf(messageBuffer, _msgFormat, __VA__ARGS__);\
+		AssertMessage(messageBuffer);\
+	}
 #else
 	#define Assert( _cond )
 	#define Verify( _cond, _msg )
