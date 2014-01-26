@@ -20,7 +20,7 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{70A7C029-0F65-419A-AF0E-DEBD250A0EAA}</ProjectGuid>
-    <RootNamespace>Core</RootNamespace>
+    <RootNamespace>Math</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -90,10 +90,9 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>S_DEBUG;S_DEBUGGING;S_PROFILING;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir)...\...\...\Source</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\Source</AdditionalIncludeDirectories>
       <TreatWarningAsError>true</TreatWarningAsError>
       <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
-      <ShowIncludes>true</ShowIncludes>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -107,7 +106,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>S_RELEASE;S_DEBUGGING;S_PROFILING;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir)...\...\...\Source</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\Source</AdditionalIncludeDirectories>
       <TreatWarningAsError>true</TreatWarningAsError>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
     </ClCompile>
@@ -120,7 +119,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'">
     <ClCompile>
       <PreprocessorDefinitions>S_PROFILE;S_PROFILING;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir)...\...\...\Source</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\Source</AdditionalIncludeDirectories>
       <TreatWarningAsError>true</TreatWarningAsError>
       <WarningLevel>Level3</WarningLevel>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -130,7 +129,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Final|Win32'">
     <ClCompile>
       <PreprocessorDefinitions>S_FINAL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir)...\...\...\Source</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\Source</AdditionalIncludeDirectories>
       <TreatWarningAsError>true</TreatWarningAsError>
       <WarningLevel>Level3</WarningLevel>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -138,17 +137,19 @@
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\Source\Core\Core.h" />
-    <ClInclude Include="..\..\..\Source\Core\SmartPointer.h" />
-    <ClInclude Include="..\..\..\Source\Core\TypeDefs.h" />
-    <ClInclude Include="..\..\..\Source\Core\Utils.h" />
+    <ClInclude Include="..\..\..\Source\Math\Constants.h" />
+    <ClInclude Include="..\..\..\Source\Math\Vector.h" />
+    <ClInclude Include="..\..\..\Source\Math\Vector1.h" />
+    <ClInclude Include="..\..\..\Source\Math\Vector2.h" />
+    <ClInclude Include="..\..\..\Source\Math\Vector3.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\Source\Core\Utils.cpp" />
+    <None Include="..\..\..\Source\Math\Vector1.inl" />
+    <None Include="..\..\..\Source\Math\Vector2.inl" />
+    <None Include="..\..\..\Source\Math\Vector3.inl" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\..\Source\Core\SmartPointer.inl" />
-    <None Include="..\..\..\Source\Core\Utils.inl" />
+    <ClCompile Include="..\..\..\Source\Math\Vector.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

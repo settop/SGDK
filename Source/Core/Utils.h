@@ -1,8 +1,7 @@
 #pragma once
 
 #include <Core\TypeDefs.h>
-#include <Winuser.h>
-#include <WinBase.h>
+#include <Windows.h>
 
 #define Bit( _bit ) ( 1 << (_bit) )
 #define IsBitSet( _value, _bit ) (((_value) & (Bit(_bit))) != 0)

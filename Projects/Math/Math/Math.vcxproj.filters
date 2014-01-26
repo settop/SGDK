@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="..\..\..\Source\Math\Vector1.h" />
+    <ClInclude Include="..\..\..\Source\Math\Constants.h" />
+    <ClInclude Include="..\..\..\Source\Math\Vector.h" />
+    <ClInclude Include="..\..\..\Source\Math\Vector2.h" />
+    <ClInclude Include="..\..\..\Source\Math\Vector3.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\Source\Math\Vector1.inl" />
+    <None Include="..\..\..\Source\Math\Vector2.inl" />
+    <None Include="..\..\..\Source\Math\Vector3.inl" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\Source\Math\Vector.cpp" />
+  </ItemGroup>
+</Project>
