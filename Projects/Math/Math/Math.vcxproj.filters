@@ -6,11 +6,13 @@
     <ClInclude Include="..\..\..\Source\Math\Vector.h" />
     <ClInclude Include="..\..\..\Source\Math\Vector2.h" />
     <ClInclude Include="..\..\..\Source\Math\Vector3.h" />
+    <ClInclude Include="..\..\..\Source\Math\Vector4.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\Source\Math\Vector1.inl" />
     <None Include="..\..\..\Source\Math\Vector2.inl" />
     <None Include="..\..\..\Source\Math\Vector3.inl" />
+    <None Include="..\..\..\Source\Math\Vector4.inl" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\Source\Math\Vector.cpp" />

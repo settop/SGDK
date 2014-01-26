@@ -91,6 +91,11 @@ namespace VectorMasks
 	extern __m128 YZMask;
 	extern __m128 YWMask;
 	extern __m128 ZWMask;
+	
+	extern __m128 XYZMask;
+	extern __m128 XYWMask;
+	extern __m128 XZWMask;
+	extern __m128 YZWMask;
 
 	
 	extern __m128 XInvMask;
@@ -104,4 +109,9 @@ namespace VectorMasks
 	extern __m128 YZInvMask;
 	extern __m128 YWInvMask;
 	extern __m128 ZWInvMask;
+	
+	extern __m128 XYZInvMask;
+	extern __m128 XYWInvMask;
+	extern __m128 XZWInvMask;
+	extern __m128 YZWInvMask;
 }
