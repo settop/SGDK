@@ -13,8 +13,14 @@ public:
 public:
 	template<int I>
 	static Vector3 Integer();
+	template<int I1, int I2, int I3>
+	static Vector3 Integer();
+
 	template<int N, int D>
 	static Vector3 Fraction();
+	template<int N1, int D1, int N2, int D2, int N3, int D3>
+	static Vector3 Fraction();
+
 	static Vector3 Zero();
 	static Vector3 One();
 	static Vector3 Two();
@@ -44,13 +50,7 @@ public:
 	inline void SetY(Vector1ConstRef _y);
 	inline void SetZ(Vector1ConstRef _z);
 
-private:	
 	inline Vector3(__m128 _value);
-	
-	VectorFriends(Vector3)
-
-	friend inline Vector3 LoadVector3(float *_value);
-	friend inline void StoreVector3(Vector3ConstRef _vector, float *_value);
 
 	__m128 m_value;
 };
@@ -69,6 +69,7 @@ inline bool operator!=(Vector3ConstRef _l, Vector3ConstRef _r);
 
 inline Vector1 Dot(Vector3ConstRef _l, Vector3ConstRef _r);
 inline Vector1 Length(Vector3ConstRef _param);
+inline Vector3 Cross(Vector3ConstRef _l, Vector3ConstRef _r);
 inline Vector3 Abs(Vector3ConstRef _param);
 inline Vector3 Sqrt(Vector3ConstRef _param);
 inline Vector3 Reciprocal(Vector3ConstRef _param);

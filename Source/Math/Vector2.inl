@@ -4,22 +4,44 @@
 #include "Constants.h"
 
 template<int I>
-Vector2 Integer
+Vector2 Vector2::Integer
 (
 )
 {
-	static Vector2 result = Vector2(_mm_set_ps((float)I, (float)I, 0.f, 0.f));
+	static Vector2 result = Vector2(_mm_set_ps(0.f, 0.f, (float)I, (float)I));
 	return result;
 }
+
+template<int I1, int I2>
+Vector2 Vector2::Integer
+(
+)
+{
+	static Vector2 result = Vector2(_mm_set_ps(0.f, 0.f, (float)I2, (float)I1));
+	return result;
+}
+
 template<int N, int D>
 Vector2 Vector2::Fraction
 (
 )
 {
 	static_assert(D != 0, "Denominator in Vector2::Fraction must be nonzero");
-	static Vector2 result = Vector2(_mm_set_ps((float)N / (float)D, (float)N / (float)D, 0.f, 0.f));
+	static Vector2 result = Vector2(_mm_set_ps(0.f, 0.f, (float)N / (float)D, (float)N / (float)D));
 	return result;
 }
+
+template<int N1, int D1, int N2, int D2>
+Vector2 Fraction
+(
+)
+{
+	static_assert(D1 != 0, "Denominator1 in Vector2::Fraction must be nonzero");
+	static_assert(D2 != 0, "Denominator2 in Vector2::Fraction must be nonzero");
+	static Vector2 result = Vector2(_mm_set_ps(0.f, 0.f, (float)N2 / (float)D2, (float)N1 / (float)D1));
+	return result;
+}
+
 Vector2 Vector2::Zero
 (
 )
@@ -31,63 +53,63 @@ Vector2 Vector2::One
 (
 )
 {
-	static Vector2 result = Vector2(_mm_set_ps(1.f, 1.f, 0.f, 0.f));
+	static Vector2 result = Vector2(_mm_set_ps(0.f, 0.f, 1.f, 1.f));
 	return result;
 }
 Vector2 Vector2::Two
 (
 )
 {
-	static Vector2 result = Vector2(_mm_set_ps(2.f, 2.f, 0.f, 0.f));
+	static Vector2 result = Vector2(_mm_set_ps(0.f, 0.f, 2.f, 2.f));
 	return result;
 }
 Vector2 Vector2::MinusOne
 (
 )
 {
-	static Vector2 result = Vector2(_mm_set_ps(-1.f, -1.f, 0.f, 0.f));
+	static Vector2 result = Vector2(_mm_set_ps(0.f, 0.f, -1.f, -1.f));
 	return result;
 }
 Vector2 Vector2::Half
 (
 )
 {
-	static Vector2 result = Vector2(_mm_set_ps(0.5f, 0.5f, 0.f, 0.f));
+	static Vector2 result = Vector2(_mm_set_ps(0.f, 0.f, 0.5f, 0.5f));
 	return result;
 }
 Vector2 Vector2::Quarter
 (
 )
 {
-	static Vector2 result = Vector2(_mm_set_ps(0.25f, 0.25f, 0.f, 0.f));
+	static Vector2 result = Vector2(_mm_set_ps(0.f, 0.f, 0.25f, 0.25f));
 	return result;
 }
 Vector2 Vector2::Pi
 (
 )
 {
-	static Vector2 result = Vector2(_mm_set_ps(PI, PI, 0.f, 0.f));
+	static Vector2 result = Vector2(_mm_set_ps(0.f, 0.f, PI, PI));
 	return result;
 }
 Vector2 Vector2::TwoPi
 (
 )
 {
-	static Vector2 result = Vector2(_mm_set_ps(TWO_PI, TWO_PI, 0.f, 0.f));
+	static Vector2 result = Vector2(_mm_set_ps(0.f, 0.f, TWO_PI, TWO_PI));
 	return result;
 }
 Vector2 Vector2::PiBy2
 (
 )
 {
-	static Vector2 result = Vector2(_mm_set_ps(PI_BY_2, PI_BY_2, 0.f, 0.f));
+	static Vector2 result = Vector2(_mm_set_ps(0.f, 0.f, PI_BY_2, PI_BY_2));
 	return result;
 }
 Vector2 Vector2::PiBy4
 (
 )
 {
-	static Vector2 result = Vector2(_mm_set_ps(PI_BY_4, PI_BY_4, 0.f, 0.f));
+	static Vector2 result = Vector2(_mm_set_ps(0.f, 0.f, PI_BY_4, PI_BY_4));
 	return result;
 }
 
@@ -179,7 +201,7 @@ inline Vector2 LoadVector2
 	float *_value
 )
 {
-	return Vector2(_mm_set_ps(_value[0], _value[1], 0.f, 0.f));
+	return Vector2(_mm_set_ps(0.f, 0.f, _value[1], _value[0]));
 }
 inline void StoreVector2
 (

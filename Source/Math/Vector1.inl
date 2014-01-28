@@ -4,7 +4,7 @@
 #include "Constants.h"
 
 template<int I>
-Vector1 Integer
+Vector1 Vector1::Integer
 (
 )
 {

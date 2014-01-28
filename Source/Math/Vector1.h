@@ -29,25 +29,7 @@ public:
 
 	inline Vector1Ref operator=(Vector1ConstRef _other);
 
-private:	
 	inline Vector1(__m128 _value);
-
-	VectorFriends(Vector1)
-
-	friend Vector1 Dot(Vector1ConstRef _l, Vector1ConstRef _r); 
-	friend Vector1 Dot(Vector2ConstRef _l, Vector2ConstRef _r); 
-	friend Vector1 Dot(Vector3ConstRef _l, Vector3ConstRef _r); 
-	friend Vector1 Dot(Vector4ConstRef _l, Vector4ConstRef _r); 
-
-	friend Vector1 Length(Vector1ConstRef _param); 
-	friend Vector1 Length(Vector2ConstRef _param); 
-	friend Vector1 Length(Vector3ConstRef _param); 
-	friend Vector1 Length(Vector4ConstRef _param); 
-
-	friend bool operator>(Vector1ConstRef _l, Vector1ConstRef _r);
-	friend bool operator>=(Vector1ConstRef _l, Vector1ConstRef _r);
-	friend bool operator<(Vector1ConstRef _l, Vector1ConstRef _r);
-	friend bool operator<=(Vector1ConstRef _l, Vector1ConstRef _r);	
 
 	__m128 m_value;
 };

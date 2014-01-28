@@ -1,6 +1,11 @@
 #include "Vector.h"
 #include <Core\TypeDefs.h>
 
+#include "Vector1.h"
+#include "Vector2.h"
+#include "Vector3.h"
+#include "Vector4.h"
+
 namespace VectorMasks
 {
 	static __declspec(align(16)) uint32 PositiveMaskRaw[4] = { 0x7fffffff, 0x7fffffff, 0x7fffffff, 0x7fffffff };

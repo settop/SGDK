@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="..\..\..\Source\TestApp\Main.cpp" />
+    <ClCompile Include="..\..\..\Source\TestApp\MathTests\Vector1Test.cpp">
+      <Filter>MathTests</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="MathTests">
+      <UniqueIdentifier>{04ca197a-a201-408d-b6ae-2e03aad44c23}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\Source\TestApp\MathTests\Vector1Test.h">
+      <Filter>MathTests</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

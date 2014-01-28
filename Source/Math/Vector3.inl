@@ -4,22 +4,43 @@
 #include "Constants.h"
 
 template<int I>
-Vector3 Integer
+Vector3 Vector3::Integer
 (
 )
 {
-	static Vector3 result = Vector3(_mm_set_ps((float)I, (float)I, (float)I, 0.f));
+	static Vector3 result = Vector3(_mm_set_ps(0.f, (float)I, (float)I, (float)I));
 	return result;
 }
+template<int I1, int I2, int I3>
+Vector3 Vector3::Integer
+(
+)
+{
+	static Vector3 result = Vector3(_mm_set_ps(0.f, (float)I3, (float)I2, (float)I1));
+	return result;
+}
+
 template<int N, int D>
 Vector3 Vector3::Fraction
 (
 )
 {
 	static_assert(D != 0, "Denominator in Vector3::Fraction must be nonzero");
-	static Vector3 result = Vector3(_mm_set_ps((float)N / (float)D, (float)N / (float)D, (float)N / (float)D, 0.f));
+	static Vector3 result = Vector3(_mm_set_ps(0.f, (float)N / (float)D, (float)N / (float)D, (float)N / (float)D));
 	return result;
 }
+template<int N1, int D1, int N2, int D2, int N3, int D3>
+Vector3 Vector3::Fraction
+(
+)
+{
+	static_assert(D1 != 0, "Denominator1 in Vector3::Fraction must be nonzero");
+	static_assert(D2 != 0, "Denominator2 in Vector3::Fraction must be nonzero");
+	static_assert(D3 != 0, "Denominator3 in Vector3::Fraction must be nonzero");
+	static Vector3 result = Vector3(_mm_set_ps(0.f, (float)N3 / (float)D3, (float)N2 / (float)D2, (float)N1 / (float)D1));
+	return result;
+}
+
 Vector3 Vector3::Zero
 (
 )
@@ -31,63 +52,63 @@ Vector3 Vector3::One
 (
 )
 {
-	static Vector3 result = Vector3(_mm_set_ps(1.f, 1.f, 1.f, 0.f));
+	static Vector3 result = Vector3(_mm_set_ps(0.f, 1.f, 1.f, 1.f));
 	return result;
 }
 Vector3 Vector3::Two
 (
 )
 {
-	static Vector3 result = Vector3(_mm_set_ps(2.f, 2.f, 2.f, 0.f));
+	static Vector3 result = Vector3(_mm_set_ps(0.f, 2.f, 2.f, 2.f));
 	return result;
 }
 Vector3 Vector3::MinusOne
 (
 )
 {
-	static Vector3 result = Vector3(_mm_set_ps(-1.f, -1.f, -1.f, 0.f));
+	static Vector3 result = Vector3(_mm_set_ps(0.f, -1.f, -1.f, -1.f));
 	return result;
 }
 Vector3 Vector3::Half
 (
 )
 {
-	static Vector3 result = Vector3(_mm_set_ps(0.5f, 0.5f, 0.5f, 0.f));
+	static Vector3 result = Vector3(_mm_set_ps(0.f, 0.5f, 0.5f, 0.5f));
 	return result;
 }
 Vector3 Vector3::Quarter
 (
 )
 {
-	static Vector3 result = Vector3(_mm_set_ps(0.25f, 0.25f, 0.25f, 0.f));
+	static Vector3 result = Vector3(_mm_set_ps(0.f, 0.25f, 0.25f, 0.25f));
 	return result;
 }
 Vector3 Vector3::Pi
 (
 )
 {
-	static Vector3 result = Vector3(_mm_set_ps(PI, PI, PI, 0.f));
+	static Vector3 result = Vector3(_mm_set_ps(0.f, PI, PI, PI));
 	return result;
 }
 Vector3 Vector3::TwoPi
 (
 )
 {
-	static Vector3 result = Vector3(_mm_set_ps(TWO_PI, TWO_PI, TWO_PI, 0.f));
+	static Vector3 result = Vector3(_mm_set_ps(0.f, TWO_PI, TWO_PI, TWO_PI));
 	return result;
 }
 Vector3 Vector3::PiBy2
 (
 )
 {
-	static Vector3 result = Vector3(_mm_set_ps(PI_BY_2, PI_BY_2, PI_BY_2, 0.f));
+	static Vector3 result = Vector3(_mm_set_ps(0.f, PI_BY_2, PI_BY_2, PI_BY_2));
 	return result;
 }
 Vector3 Vector3::PiBy4
 (
 )
 {
-	static Vector3 result = Vector3(_mm_set_ps(PI_BY_4, PI_BY_4, PI_BY_4, 0.f));
+	static Vector3 result = Vector3(_mm_set_ps(0.f, PI_BY_4, PI_BY_4, PI_BY_4));
 	return result;
 }
 
@@ -211,7 +232,7 @@ inline Vector3 LoadVector3
 	float *_value
 )
 {
-	return Vector3(_mm_set_ps(_value[0], _value[1], _value[2], 0.f));
+	return Vector3(_mm_set_ps(0.f, _value[2], _value[1], _value[0]));
 }
 inline void StoreVector3
 (
@@ -310,6 +331,29 @@ inline Vector1 Length
 )
 {
 	return Sqrt(Dot(_param, _param));
+};
+inline Vector3 Cross
+(
+	Vector3ConstRef _l, 
+	Vector3ConstRef _r
+)
+{
+	/*
+	Vector3 return = 
+		(
+			l.y * r.z - l.z * r.y,
+			l.z * r.x - l.x * r.z,
+			l.x * r.y - l.y * r.x
+		)
+	*/
+	return Vector3
+	(
+		_mm_sub_ps
+		(
+			_mm_mul_ps( _mm_shuffle_ps(_l.m_value, _l.m_value, _MM_SHUFFLE(3, 0, 2, 1)), _mm_shuffle_ps(_r.m_value, _r.m_value, _MM_SHUFFLE(3, 1, 0, 2)) ),
+			_mm_mul_ps( _mm_shuffle_ps(_l.m_value, _l.m_value, _MM_SHUFFLE(3, 1, 0, 2)), _mm_shuffle_ps(_r.m_value, _r.m_value, _MM_SHUFFLE(3, 0, 2, 1)) )
+		)
+	);
 };
 inline Vector3 Abs
 (

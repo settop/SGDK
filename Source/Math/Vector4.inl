@@ -4,13 +4,22 @@
 #include "Constants.h"
 
 template<int I>
-Vector4 Integer
+Vector4 Vector4::Integer
 (
 )
 {
 	static Vector4 result = Vector4(_mm_set_ps((float)I, (float)I, (float)I, (float)I));
 	return result;
 }
+template<int I1, int I2, int I3, int I4>
+Vector4 Vector4::Integer
+(
+)
+{
+	static Vector4 result = Vector4(_mm_set_ps((float)I4, (float)I3, (float)I2, (float)I1));
+	return result;
+}
+
 template<int N, int D>
 Vector4 Vector4::Fraction
 (
@@ -20,6 +29,19 @@ Vector4 Vector4::Fraction
 	static Vector4 result = Vector4(_mm_set_ps((float)N / (float)D, (float)N / (float)D, (float)N / (float)D, (float)N / (float)D));
 	return result;
 }
+	template<int N1, int D1, int N2, int D2, int N3, int D3, int N4, int D4>
+Vector4 Vector4::Fraction
+(
+)
+{
+	static_assert(D1 != 0, "Denominator1 in Vector4::Fraction must be nonzero");
+	static_assert(D2 != 0, "Denominator2 in Vector4::Fraction must be nonzero");
+	static_assert(D3 != 0, "Denominator3 in Vector4::Fraction must be nonzero");
+	static_assert(D4 != 0, "Denominator4 in Vector4::Fraction must be nonzero");
+	static Vector4 result = Vector4(_mm_set_ps((float)N4 / (float)D4, (float)N3 / (float)D3, (float)N2 / (float)D2, (float)N1 / (float)D1));
+	return result;
+}
+
 Vector4 Vector4::Zero
 (
 )
@@ -245,7 +267,7 @@ inline Vector4 LoadVector4
 	float *_value
 )
 {
-	return Vector4(_mm_set_ps(_value[0], _value[1], _value[2], _value[3]));
+	return Vector4(_mm_set_ps(_value[3], _value[2], _value[1], _value[0]));
 }
 inline void StoreVector4
 (

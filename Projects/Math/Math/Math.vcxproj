@@ -65,24 +65,28 @@
     <IncludePath>$(ProjectDir)..\..\..\Source;$(IncludePath)</IncludePath>
     <LibraryPath>$(OutDir);$(LibraryPath)</LibraryPath>
     <SourcePath>$(ProjectDir)..\..\..\Source;$(SourcePath)</SourcePath>
+    <TargetName>$(ProjectName).$(Configuration)</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>$(ProjectDir)..\..\Libs\</OutDir>
     <IncludePath>$(ProjectDir)..\..\..\Source;$(IncludePath)</IncludePath>
     <LibraryPath>$(OutDir);$(LibraryPath)</LibraryPath>
     <SourcePath>$(ProjectDir)..\..\..\Source;$(SourcePath)</SourcePath>
+    <TargetName>$(ProjectName).$(Configuration)</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'">
     <OutDir>$(ProjectDir)..\..\Libs\</OutDir>
     <IncludePath>$(ProjectDir)..\..\..\Source;$(IncludePath)</IncludePath>
     <LibraryPath>$(OutDir);$(LibraryPath)</LibraryPath>
     <SourcePath>$(ProjectDir)..\..\..\Source;$(SourcePath)</SourcePath>
+    <TargetName>$(ProjectName).$(Configuration)</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Final|Win32'">
     <OutDir>$(ProjectDir)..\..\Libs\</OutDir>
     <IncludePath>$(ProjectDir)..\..\..\Source;$(IncludePath)</IncludePath>
     <LibraryPath>$(OutDir);$(LibraryPath)</LibraryPath>
     <SourcePath>$(ProjectDir)..\..\..\Source;$(SourcePath)</SourcePath>
+    <TargetName>$(ProjectName).$(Configuration)</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -109,6 +113,8 @@
       <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\Source</AdditionalIncludeDirectories>
       <TreatWarningAsError>true</TreatWarningAsError>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -138,6 +144,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\Source\Math\Constants.h" />
+    <ClInclude Include="..\..\..\Source\Math\Math.h" />
     <ClInclude Include="..\..\..\Source\Math\Vector.h" />
     <ClInclude Include="..\..\..\Source\Math\Vector1.h" />
     <ClInclude Include="..\..\..\Source\Math\Vector2.h" />

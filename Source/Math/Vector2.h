@@ -12,8 +12,14 @@ public:
 public:
 	template<int I>
 	static Vector2 Integer();
+	template<int I1, int I2>
+	static Vector2 Integer();
+
 	template<int N, int D>
 	static Vector2 Fraction();
+	template<int N1, int D1, int N2, int D2>
+	static Vector2 Fraction();
+
 	static Vector2 Zero();
 	static Vector2 One();
 	static Vector2 Two();
@@ -39,13 +45,7 @@ public:
 	inline void SetX(Vector1ConstRef _x);
 	inline void SetY(Vector1ConstRef _y);
 
-private:	
 	inline Vector2(__m128 _value);
-	
-	VectorFriends(Vector2)
-
-	friend inline Vector2 LoadVector2(float *_value);
-	friend inline void StoreVector2(Vector2ConstRef _vector, float *_value);
 
 	__m128 m_value;
 };

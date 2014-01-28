@@ -14,8 +14,14 @@ public:
 public:
 	template<int I>
 	static Vector4 Integer();
+	template<int I1, int I2, int I3, int I4>
+	static Vector4 Integer();
+
 	template<int N, int D>
 	static Vector4 Fraction();
+	template<int N1, int D1, int N2, int D2, int N3, int D3, int N4, int D4>
+	static Vector4 Fraction();
+
 	static Vector4 Zero();
 	static Vector4 One();
 	static Vector4 Two();
@@ -49,13 +55,7 @@ public:
 	inline void SetZ(Vector1ConstRef _z);
 	inline void SetW(Vector1ConstRef _w);
 
-private:	
 	inline Vector4(__m128 _value);
-	
-	VectorFriends(Vector4)
-
-	friend inline Vector4 LoadVector4(float *_value);
-	friend inline void StoreVector4(Vector4ConstRef _vector, float *_value);
 
 	__m128 m_value;
 };

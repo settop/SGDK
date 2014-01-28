@@ -2,6 +2,7 @@
 
 #include <Core\TypeDefs.h>
 #include <Windows.h>
+#include <stdio.h>
 
 #define Bit( _bit ) ( 1 << (_bit) )
 #define IsBitSet( _value, _bit ) (((_value) & (Bit(_bit))) != 0)
@@ -45,14 +46,14 @@
 		if(!(_cond))\
 		{\
 			char messageBuffer[2048];\
-			sprintf(messageBuffer, "Assert failed: %s\n" _msgFormat, #_cond, __VA__ARGS__);\
+			sprintf_s(messageBuffer, "Assert failed: %s\n" _msgFormat, #_cond, __VA_ARGS__);\
 			AssertMessage(messageBuffer);\
 		}\
 	}
 	#define ErrorF( _msgFormat, ...  )\
 	{\
 		char messageBuffer[2048];\
-		sprintf(messageBuffer, _msgFormat, __VA__ARGS__);\
+		sprintf_s(messageBuffer, _msgFormat, __VA__ARGS__);\
 		AssertMessage(messageBuffer);\
 	}
 #else

@@ -25,45 +25,6 @@ typedef Vector4 const Vector4ConstParam;
 typedef Vector4 const& Vector4ConstRef;
 typedef Vector4& Vector4Ref;
 
-#define VectorFriends( _Vector )\
-	friend class Vector1;\
-	friend class Vector2;\
-	friend class Vector3;\
-	friend class Vector4;\
-	\
-	friend _Vector Load##_Vector(float *_value);\
-	friend void Store##_Vector(_Vector##ConstRef _vector, float *_value);\
-	\
-	friend _Vector operator+(_Vector##ConstRef _l, _Vector##ConstRef _r);\
-	friend _Vector operator-(_Vector##ConstRef _l, _Vector##ConstRef _r);\
-	friend Vector1 operator*(Vector1ConstRef _l, Vector1ConstRef _r);\
-	friend Vector2 operator*(Vector2ConstRef _l, Vector1ConstRef _r);\
-	friend Vector3 operator*(Vector3ConstRef _l, Vector1ConstRef _r);\
-	friend Vector4 operator*(Vector4ConstRef _l, Vector1ConstRef _r);\
-	friend Vector1 operator*(Vector1ConstRef _l, Vector1ConstRef _r);\
-	friend Vector2 operator*(Vector1ConstRef _l, Vector2ConstRef _r);\
-	friend Vector3 operator*(Vector1ConstRef _l, Vector3ConstRef _r);\
-	friend Vector4 operator*(Vector1ConstRef _l, Vector4ConstRef _r);\
-	friend Vector1 operator/(Vector1ConstRef _l, Vector1ConstRef _r);\
-	friend Vector2 operator/(Vector2ConstRef _l, Vector1ConstRef _r);\
-	friend Vector3 operator/(Vector3ConstRef _l, Vector1ConstRef _r);\
-	friend Vector4 operator/(Vector4ConstRef _l, Vector1ConstRef _r);\
-	\
-	friend bool operator==(_Vector##ConstRef _l, _Vector##ConstRef _r);\
-	friend bool operator!=(_Vector##ConstRef _l, _Vector##ConstRef _r);\
-	\
-	friend Vector1 Dot(_Vector##ConstRef _l, _Vector##ConstRef _r);\
-	friend Vector1 Length(_Vector##ConstRef _param);\
-	friend _Vector Abs(_Vector##ConstRef _param);\
-	friend _Vector Sqrt(_Vector##ConstRef _param);\
-	friend _Vector Reciprocal(_Vector##ConstRef _param);\
-	friend _Vector ReciprocalSqrt(_Vector##ConstRef _param);\
-	friend _Vector Min(_Vector##ConstRef _a, _Vector##ConstRef _b);\
-	friend _Vector Max(_Vector##ConstRef _a, _Vector##ConstRef _b);\
-	friend _Vector And(_Vector##ConstRef _a, _Vector##ConstRef _b);\
-	friend _Vector Or(_Vector##ConstRef _a, _Vector##ConstRef _b);\
-	friend _Vector Xor(_Vector##ConstRef _a, _Vector##ConstRef _b);
-
 //union FloatSSE
 //{
 //	__m128 m_sse;
