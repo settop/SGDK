@@ -399,6 +399,24 @@ inline Vector3 Max
 {
 	return Vector3(_mm_max_ps(_a.m_value, _b.m_value));
 }
+inline Vector3 Lerp
+(
+	Vector3ConstRef _a, 
+	Vector3ConstRef _b, 
+	Vector3ConstRef _lerpValue
+)
+{	
+	return Vector3(_mm_add_ps(_mm_mul_ps(_a.m_value, _mm_sub_ps(Vector1::One().m_value, _lerpValue.m_value)), _mm_mul_ps(_b.m_value, _lerpValue.m_value)));
+}
+inline Vector3 Lerp
+(
+	Vector3ConstRef _a, 
+	Vector3ConstRef _b, 
+	Vector1ConstRef _lerpValue
+)
+{
+	return Vector3(_mm_add_ps(_mm_mul_ps(_a.m_value, _mm_sub_ps(Vector1::One().m_value, _lerpValue.m_value)), _mm_mul_ps(_b.m_value, _lerpValue.m_value)));
+}
 inline Vector3 And
 (
 	Vector3ConstRef _a, 

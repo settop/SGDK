@@ -8,6 +8,8 @@ class Vector1;
 class Vector2;
 class Vector3;
 class Vector4;
+class Matrix33;
+class Matrix44;
 
 typedef Vector1 const Vector1ConstParam;
 typedef Vector1 const& Vector1ConstRef;
@@ -24,6 +26,14 @@ typedef Vector3& Vector3Ref;
 typedef Vector4 const Vector4ConstParam;
 typedef Vector4 const& Vector4ConstRef;
 typedef Vector4& Vector4Ref;
+
+typedef Matrix33 const Matrix33ConstParam;
+typedef Matrix33 const& Matrix33ConstRef;
+typedef Matrix33& Matrix33Ref;
+
+typedef Matrix44 const Matrix44ConstParam;
+typedef Matrix44 const& Matrix44ConstRef;
+typedef Matrix44& Matrix44Ref;
 
 //union FloatSSE
 //{

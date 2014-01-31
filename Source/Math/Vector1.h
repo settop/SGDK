@@ -57,8 +57,10 @@ inline Vector1 Reciprocal(Vector1ConstRef _param);
 inline Vector1 ReciprocalSqrt(Vector1ConstRef _param);
 inline Vector1 Min(Vector1ConstRef _a, Vector1ConstRef _b);
 inline Vector1 Max(Vector1ConstRef _a, Vector1ConstRef _b);
+inline Vector1 Lerp(Vector1ConstRef _a, Vector1ConstRef _b, Vector1ConstRef _lerpValue);
 inline Vector1 And(Vector1ConstRef _a, Vector1ConstRef _b);
 inline Vector1 Or(Vector1ConstRef _a, Vector1ConstRef _b);
 inline Vector1 Xor(Vector1ConstRef _a, Vector1ConstRef _b);
+
 
 #include "Vector1.inl"

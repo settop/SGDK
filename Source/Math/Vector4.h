@@ -80,6 +80,8 @@ inline Vector4 Reciprocal(Vector4ConstRef _param);
 inline Vector4 ReciprocalSqrt(Vector4ConstRef _param);
 inline Vector4 Min(Vector4ConstRef _a, Vector4ConstRef _b);
 inline Vector4 Max(Vector4ConstRef _a, Vector4ConstRef _b);
+inline Vector4 Lerp(Vector4ConstRef _a, Vector4ConstRef _b, Vector4ConstRef _lerpValue);
+inline Vector4 Lerp(Vector4ConstRef _a, Vector4ConstRef _b, Vector1ConstRef _lerpValue);
 inline Vector4 And(Vector4ConstRef _a, Vector4ConstRef _b);
 inline Vector4 Or(Vector4ConstRef _a, Vector4ConstRef _b);
 inline Vector4 Xor(Vector4ConstRef _a, Vector4ConstRef _b);

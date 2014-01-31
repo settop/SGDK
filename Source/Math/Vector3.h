@@ -76,6 +76,8 @@ inline Vector3 Reciprocal(Vector3ConstRef _param);
 inline Vector3 ReciprocalSqrt(Vector3ConstRef _param);
 inline Vector3 Min(Vector3ConstRef _a, Vector3ConstRef _b);
 inline Vector3 Max(Vector3ConstRef _a, Vector3ConstRef _b);
+inline Vector3 Lerp(Vector3ConstRef _a, Vector3ConstRef _b, Vector3ConstRef _lerpValue);
+inline Vector3 Lerp(Vector3ConstRef _a, Vector3ConstRef _b, Vector1ConstRef _lerpValue);
 inline Vector3 And(Vector3ConstRef _a, Vector3ConstRef _b);
 inline Vector3 Or(Vector3ConstRef _a, Vector3ConstRef _b);
 inline Vector3 Xor(Vector3ConstRef _a, Vector3ConstRef _b);

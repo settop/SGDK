@@ -321,6 +321,15 @@ inline Vector1 Max
 	ret.m_value = _mm_max_ps(_a.m_value, _b.m_value);
 	return ret;
 }
+inline Vector1 Lerp
+(
+	Vector1ConstRef _a, 
+	Vector1ConstRef _b, 
+	Vector1ConstRef _lerpValue
+)
+{
+	return Vector1(_mm_add_ps(_mm_mul_ps(_a.m_value, _mm_sub_ps(Vector1::One().m_value, _lerpValue.m_value)), _mm_mul_ps(_b.m_value, _lerpValue.m_value)));
+};
 inline Vector1 And
 (
 	Vector1ConstRef _a, 

@@ -70,6 +70,8 @@ inline Vector2 Reciprocal(Vector2ConstRef _param);
 inline Vector2 ReciprocalSqrt(Vector2ConstRef _param);
 inline Vector2 Min(Vector2ConstRef _a, Vector2ConstRef _b);
 inline Vector2 Max(Vector2ConstRef _a, Vector2ConstRef _b);
+inline Vector2 Lerp(Vector2ConstRef _a, Vector2ConstRef _b, Vector2ConstRef _lerpValue);
+inline Vector2 Lerp(Vector2ConstRef _a, Vector2ConstRef _b, Vector1ConstRef _lerpValue);
 inline Vector2 And(Vector2ConstRef _a, Vector2ConstRef _b);
 inline Vector2 Or(Vector2ConstRef _a, Vector2ConstRef _b);
 inline Vector2 Xor(Vector2ConstRef _a, Vector2ConstRef _b);

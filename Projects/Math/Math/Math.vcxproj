@@ -145,6 +145,8 @@
   <ItemGroup>
     <ClInclude Include="..\..\..\Source\Math\Constants.h" />
     <ClInclude Include="..\..\..\Source\Math\Math.h" />
+    <ClInclude Include="..\..\..\Source\Math\Matrix33.h" />
+    <ClInclude Include="..\..\..\Source\Math\Matrix44.h" />
     <ClInclude Include="..\..\..\Source\Math\Vector.h" />
     <ClInclude Include="..\..\..\Source\Math\Vector1.h" />
     <ClInclude Include="..\..\..\Source\Math\Vector2.h" />
@@ -152,6 +154,9 @@
     <ClInclude Include="..\..\..\Source\Math\Vector4.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\..\Source\Math\Math.inl" />
+    <None Include="..\..\..\Source\Math\Matrix33.inl" />
+    <None Include="..\..\..\Source\Math\Matrix44.inl" />
     <None Include="..\..\..\Source\Math\Vector1.inl" />
     <None Include="..\..\..\Source\Math\Vector2.inl" />
     <None Include="..\..\..\Source\Math\Vector3.inl" />

@@ -14,5 +14,8 @@ namespace Vector1Test
 
 		Vector1 length = Length(Vector3::Integer<1>());
 		Assert(length < Vector1::Integer<2>());
+
+		Matrix33 testMat = Matrix33(Vector3::Integer<1, 2, 3>(), Vector3::Integer<4, 5, 6>(), Vector3::Integer<7, 8, 9>());
+		Matrix33 testTran = Transpose(testMat);
 	}
 }

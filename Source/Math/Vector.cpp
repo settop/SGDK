@@ -1,10 +1,12 @@
 #include "Vector.h"
 #include <Core\TypeDefs.h>
 
-#include "Vector1.h"
-#include "Vector2.h"
-#include "Vector3.h"
-#include "Vector4.h"
+//#include "Vector1.h"
+//#include "Vector2.h"
+//#include "Vector3.h"
+//#include "Vector4.h"
+//#include "Matrix33.h"
+//#include "Matrix44.h"
 
 namespace VectorMasks
 {
