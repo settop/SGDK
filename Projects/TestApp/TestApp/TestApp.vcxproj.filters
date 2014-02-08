@@ -5,15 +5,24 @@
     <ClCompile Include="..\..\..\Source\TestApp\MathTests\Vector1Test.cpp">
       <Filter>MathTests</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\Source\TestApp\ThreadTests\TaskSchedulerTest.cpp">
+      <Filter>ThreadTests</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="MathTests">
       <UniqueIdentifier>{04ca197a-a201-408d-b6ae-2e03aad44c23}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ThreadTests">
+      <UniqueIdentifier>{f61ac1e3-5644-41cb-ae19-67ade78a51b6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\Source\TestApp\MathTests\Vector1Test.h">
       <Filter>MathTests</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Source\TestApp\ThreadTests\TaskSchedulerTest.h">
+      <Filter>ThreadTests</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -82,4 +82,6 @@ inline Vector3 And(Vector3ConstRef _a, Vector3ConstRef _b);
 inline Vector3 Or(Vector3ConstRef _a, Vector3ConstRef _b);
 inline Vector3 Xor(Vector3ConstRef _a, Vector3ConstRef _b);
 
+inline bool IsNormalised(Vector3ConstRef _param);
+
 #include "Vector3.inl"

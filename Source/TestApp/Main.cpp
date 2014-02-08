@@ -2,6 +2,7 @@
 #include <iostream>
 
 #include "MathTests\Vector1Test.h"
+#include "ThreadTests\TaskSchedulerTest.h"
 
 int main
 ( 
@@ -10,6 +11,7 @@ int main
 )
 {
 	Vector1Test::Run();
+	TaskSchedulerTest::Run();
 	std::cin.get();
 	return 0;
 }

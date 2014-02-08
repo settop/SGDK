@@ -20,31 +20,31 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{70A7C029-0F65-419A-AF0E-DEBD250A0EAA}</ProjectGuid>
-    <RootNamespace>TestApp</RootNamespace>
+    <RootNamespace>Threads</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v110</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v110</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v110</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Final|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v110</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -61,30 +61,30 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <OutDir>$(ProjectDir)..\..\..\Runtime\</OutDir>
-    <IncludePath>$(ProjectDir)..\..\..\Source;C:\Users\User\Source\Repos\SGDK\External\boost_1_55_0;$(IncludePath)</IncludePath>
-    <LibraryPath>$(ProjectDir)..\..\..\External\boost_1_55_0\stage\libs;$(ProjectDir)..\..\Libs\;$(LibraryPath)</LibraryPath>
+    <OutDir>$(ProjectDir)..\..\Libs\</OutDir>
+    <IncludePath>$(ProjectDir)..\..\..\Source;$(ProjectDir)..\..\..\External\boost_1_55_0;$(IncludePath)</IncludePath>
+    <LibraryPath>$(OutDir);$(LibraryPath)</LibraryPath>
     <SourcePath>$(ProjectDir)..\..\..\Source;$(SourcePath)</SourcePath>
     <TargetName>$(ProjectName).$(Configuration)</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <OutDir>$(ProjectDir)..\..\..\Runtime\</OutDir>
-    <IncludePath>$(ProjectDir)..\..\..\Source;C:\Users\User\Source\Repos\SGDK\External\boost_1_55_0;$(IncludePath)</IncludePath>
-    <LibraryPath>$(ProjectDir)..\..\..\External\boost_1_55_0\stage\libs;$(ProjectDir)..\..\Libs\;$(LibraryPath)</LibraryPath>
+    <OutDir>$(ProjectDir)..\..\Libs\</OutDir>
+    <IncludePath>$(ProjectDir)..\..\..\Source;$(ProjectDir)..\..\..\External\boost_1_55_0;$(IncludePath)</IncludePath>
+    <LibraryPath>$(OutDir);$(LibraryPath)</LibraryPath>
     <SourcePath>$(ProjectDir)..\..\..\Source;$(SourcePath)</SourcePath>
     <TargetName>$(ProjectName).$(Configuration)</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'">
-    <OutDir>$(ProjectDir)..\..\..\Runtime\</OutDir>
-    <IncludePath>$(ProjectDir)..\..\..\Source;C:\Users\User\Source\Repos\SGDK\External\boost_1_55_0;$(IncludePath)</IncludePath>
-    <LibraryPath>$(ProjectDir)..\..\..\External\boost_1_55_0\stage\libs;$(ProjectDir)..\..\Libs\;$(LibraryPath)</LibraryPath>
+    <OutDir>$(ProjectDir)..\..\Libs\</OutDir>
+    <IncludePath>$(ProjectDir)..\..\..\Source;$(ProjectDir)..\..\..\External\boost_1_55_0;$(IncludePath)</IncludePath>
+    <LibraryPath>$(OutDir);$(LibraryPath)</LibraryPath>
     <SourcePath>$(ProjectDir)..\..\..\Source;$(SourcePath)</SourcePath>
     <TargetName>$(ProjectName).$(Configuration)</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Final|Win32'">
-    <OutDir>$(ProjectDir)..\..\..\Runtime\</OutDir>
-    <IncludePath>$(ProjectDir)..\..\..\Source;C:\Users\User\Source\Repos\SGDK\External\boost_1_55_0;$(IncludePath)</IncludePath>
-    <LibraryPath>$(ProjectDir)..\..\..\External\boost_1_55_0\stage\libs;$(ProjectDir)..\..\Libs\;$(LibraryPath)</LibraryPath>
+    <OutDir>$(ProjectDir)..\..\Libs\</OutDir>
+    <IncludePath>$(ProjectDir)..\..\..\Source;$(ProjectDir)..\..\..\External\boost_1_55_0;$(IncludePath)</IncludePath>
+    <LibraryPath>$(OutDir);$(LibraryPath)</LibraryPath>
     <SourcePath>$(ProjectDir)..\..\..\Source;$(SourcePath)</SourcePath>
     <TargetName>$(ProjectName).$(Configuration)</TargetName>
   </PropertyGroup>
@@ -100,8 +100,6 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>Core.$(Configuration).lib;Math.$(Configuration).lib;Threads.$(Configuration).lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(ProjectDir)..\..\..\External\boost_1_55_0\stage\lib</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -122,8 +120,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>Core.$(Configuration).lib;Math.$(Configuration).lib;Threads.$(Configuration).lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(ProjectDir)..\..\..\External\boost_1_55_0\stage\lib</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'">
@@ -135,10 +131,6 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
     </ClCompile>
-    <Link>
-      <AdditionalDependencies>Core.$(Configuration).lib;Math.$(Configuration).lib;Threads.$(Configuration).lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(ProjectDir)..\..\..\External\boost_1_55_0\stage\lib</AdditionalLibraryDirectories>
-    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Final|Win32'">
     <ClCompile>
@@ -149,19 +141,17 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
     </ClCompile>
-    <Link>
-      <AdditionalDependencies>Core.$(Configuration).lib;Math.$(Configuration).lib;Threads.$(Configuration).lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(ProjectDir)..\..\..\External\boost_1_55_0\stage\lib</AdditionalLibraryDirectories>
-    </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\Source\TestApp\Main.cpp" />
-    <ClCompile Include="..\..\..\Source\TestApp\MathTests\Vector1Test.cpp" />
-    <ClCompile Include="..\..\..\Source\TestApp\ThreadTests\TaskSchedulerTest.cpp" />
+    <ClInclude Include="..\..\..\Source\Threads\Tasks\SpinLock.h" />
+    <ClInclude Include="..\..\..\Source\Threads\Tasks\TaskScheduler.h" />
+    <ClInclude Include="..\..\..\Source\Threads\Tasks\TaskDefines.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\Source\TestApp\MathTests\Vector1Test.h" />
-    <ClInclude Include="..\..\..\Source\TestApp\ThreadTests\TaskSchedulerTest.h" />
+    <ClCompile Include="..\..\..\Source\Threads\Tasks\TaskScheduler.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\Source\Threads\Tasks\TaskScheduler.inl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

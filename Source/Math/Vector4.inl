@@ -387,14 +387,14 @@ inline Vector4 Reciprocal
 	Vector4ConstRef _param
 )
 {
-	return And( Vector4(_mm_rcp_ps(_param.m_value)), VectorMasks::XYMask );
+	return Vector4(_mm_rcp_ps(_param.m_value));
 }
 inline Vector4 ReciprocalSqrt
 (
 	Vector4ConstRef _param
 )
 {
-	return And( Vector4(_mm_rsqrt_ps(_param.m_value)), VectorMasks::XYMask );
+	return Vector4(_mm_rsqrt_ps(_param.m_value));
 }
 inline Vector4 Min
 (

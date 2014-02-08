@@ -374,14 +374,14 @@ inline Vector3 Reciprocal
 	Vector3ConstRef _param
 )
 {
-	return And( Vector3(_mm_rcp_ps(_param.m_value)), VectorMasks::XYMask );
+	return And( Vector3(_mm_rcp_ps(_param.m_value)), VectorMasks::XYZMask );
 }
 inline Vector3 ReciprocalSqrt
 (
 	Vector3ConstRef _param
 )
 {
-	return And( Vector3(_mm_rsqrt_ps(_param.m_value)), VectorMasks::XYMask );
+	return And( Vector3(_mm_rsqrt_ps(_param.m_value)), VectorMasks::XYZMask );
 }
 inline Vector3 Min
 (
@@ -440,4 +440,14 @@ inline Vector3 Xor
 )
 {
 	return Vector3(_mm_xor_ps(_a.m_value, _b.m_value));
+}
+
+
+inline bool IsNormalised
+(
+	Vector3ConstRef _param
+)
+{
+	Vector1 lengthSq = Dot(_param, _param);
+	return (Abs(lengthSq - Vector1::One()) < Vector1::Fraction<1, 10000>());
 }

@@ -62,5 +62,13 @@ inline Vector1 And(Vector1ConstRef _a, Vector1ConstRef _b);
 inline Vector1 Or(Vector1ConstRef _a, Vector1ConstRef _b);
 inline Vector1 Xor(Vector1ConstRef _a, Vector1ConstRef _b);
 
+inline Vector1 Cos(Vector1ConstRef _param);
+inline Vector1 Sin(Vector1ConstRef _param);
+inline Vector1 Tan(Vector1ConstRef _param);
+inline Vector1 Tan2(Vector1ConstRef _x, Vector1ConstRef _y);
+inline Vector1 ACos(Vector1ConstRef _param);
+inline Vector1 ASin(Vector1ConstRef _param);
+inline Vector1 ATan(Vector1ConstRef _param);
+
 
 #include "Vector1.inl"

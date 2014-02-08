@@ -360,3 +360,77 @@ inline Vector1 Xor
 	ret.m_value = _mm_xor_ps(_a.m_value, _b.m_value);
 	return ret;
 }
+
+inline Vector1 Cos
+(
+	Vector1ConstRef _param
+)
+{
+	float v;
+	StoreVector1(_param, &v);
+	v = cosf(v);
+	return LoadVector1(&v);
+}
+inline Vector1 Sin
+(
+	Vector1ConstRef _param
+)
+{
+	float v;
+	StoreVector1(_param, &v);
+	v = sinf(v);
+	return LoadVector1(&v);
+}
+inline Vector1 Tan
+(
+	Vector1ConstRef _param
+)
+{
+	float v;
+	StoreVector1(_param, &v);
+	v = tanf(v);
+	return LoadVector1(&v);
+}
+inline Vector1 Tan2
+(
+	Vector1ConstRef _x,
+	Vector1ConstRef _y
+)
+{
+	float x;
+	float y;
+	StoreVector1(_x, &x);
+	StoreVector1(_y, &y);
+	float ret = tan(x / y);
+	return LoadVector1(&ret);
+}
+inline Vector1 ACos
+(
+	Vector1ConstRef _param
+)
+{
+	float v;
+	StoreVector1(_param, &v);
+	v = acosf(v);
+	return LoadVector1(&v);
+}
+inline Vector1 ASin
+(
+	Vector1ConstRef _param
+)
+{
+	float v;
+	StoreVector1(_param, &v);
+	v = asinf(v);
+	return LoadVector1(&v);
+}
+inline Vector1 ATan
+(
+	Vector1ConstRef _param
+)
+{
+	float v;
+	StoreVector1(_param, &v);
+	v = atanf(v);
+	return LoadVector1(&v);
+}

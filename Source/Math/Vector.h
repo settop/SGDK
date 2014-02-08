@@ -3,6 +3,7 @@
 #include <xmmintrin.h>
 #include <intrin.h>
 #include <Core\Core.h>
+#include <math.h>
 
 class Vector1;
 class Vector2;
@@ -10,6 +11,7 @@ class Vector3;
 class Vector4;
 class Matrix33;
 class Matrix44;
+class Quaternion;
 
 typedef Vector1 const Vector1ConstParam;
 typedef Vector1 const& Vector1ConstRef;
@@ -34,6 +36,10 @@ typedef Matrix33& Matrix33Ref;
 typedef Matrix44 const Matrix44ConstParam;
 typedef Matrix44 const& Matrix44ConstRef;
 typedef Matrix44& Matrix44Ref;
+
+typedef Quaternion const QuaternionConstParam;
+typedef Quaternion const& QuaternionConstRef;
+typedef Quaternion& QuaternionRef;
 
 //union FloatSSE
 //{

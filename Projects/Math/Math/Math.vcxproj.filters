@@ -10,6 +10,7 @@
     <ClInclude Include="..\..\..\Source\Math\Math.h" />
     <ClInclude Include="..\..\..\Source\Math\Matrix33.h" />
     <ClInclude Include="..\..\..\Source\Math\Matrix44.h" />
+    <ClInclude Include="..\..\..\Source\Math\Quaternion.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\Source\Math\Vector1.inl" />
@@ -19,6 +20,7 @@
     <None Include="..\..\..\Source\Math\Matrix33.inl" />
     <None Include="..\..\..\Source\Math\Matrix44.inl" />
     <None Include="..\..\..\Source\Math\Math.inl" />
+    <None Include="..\..\..\Source\Math\Quaternion.inl" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\Source\Math\Vector.cpp" />
