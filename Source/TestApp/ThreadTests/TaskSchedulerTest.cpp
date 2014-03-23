@@ -1,22 +1,22 @@
 #include "TaskSchedulerTest.h"
 
 #include <Threads\Tasks\TaskScheduler.h>
+#include <Core\Phases\Phase.h>
+
+class TestPhase
+{
+public:
+	TestPhase():Advancer(this){}
+	bool DoAdvance()
+	{
+		return false;
+	}
+public:
+	Phase<DefaultPolicy>::Advancer<TestPhase, &TestPhase::DoAdvance>::Base Advancer;
+};
 
 namespace TaskSchedulerTest
 {
-	boost::atomic<bool> m_running(true);
-
-	void ThreadFunc(TaskScheduler *_scheduler)
-	{
-		while(m_running.load())
-		{
-			if(!_scheduler->DoOneTask())
-			{
-				boost::this_thread::yield();
-			}
-		}
-	}
-
 	struct Sum
 	{
 		int32* m_l1;
@@ -39,14 +39,13 @@ namespace TaskSchedulerTest
 	(
 	)
 	{
+		TestPhase testPhase;
+		testPhase.Advancer.Activate();
+
+
 		const uint32 threadCount = 4;
 		TaskScheduler scheduler;
-
-		boost::thread_group threads;
-		for(uint32 i = 0; i < threadCount; ++i)
-		{
-			threads.create_thread( boost::bind(ThreadFunc, &scheduler) );
-		}
+		scheduler.CreateThreads(threadCount);
 
 		uint32 const arraySize = 100000;
 		int32 *a = new int32[arraySize];
@@ -56,7 +55,7 @@ namespace TaskSchedulerTest
 			a[i] = b[i] = i;
 		}
 		int32 *result = new int32[arraySize];
-		uint32 const NumTasks = 100;
+		uint32 const NumTasks = 10;
 
 		TaskHandle handle;
 		for(uint32 i = 0; i < NumTasks; ++i)
@@ -72,8 +71,8 @@ namespace TaskSchedulerTest
 		}
 		scheduler.WaitOnTask(&handle);
 
-		m_running.store(false);
-		threads.join_all();
+		scheduler.StopAllThreads();
+		scheduler.JoinAllThreads();
 
 		delete[] a;
 		delete[] b;

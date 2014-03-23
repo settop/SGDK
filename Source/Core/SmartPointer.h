@@ -3,12 +3,14 @@
 #include <Core/TypeDefs.h>
 #include <Core/Utils.h>
 
-template <bool DestroyOnZeroRef = true>
+struct DeleteOnDestruction;
+
+template <typename DestructionPolicy = DeleteOnDestruction>
 class SmartPointerTarget
 {
 public:
 	inline SmartPointerTarget();
-	inline ~SmartPointerTarget();
+	virtual ~SmartPointerTarget();
 
 	inline void Claim();
 	inline void Release();
@@ -39,6 +41,11 @@ private:
 	inline void Claim(T *_ptr);
 	inline void Release(T *_ptr);
 	T* m_ptr;
+};
+
+struct DeleteOnDestruction
+{
+	inline static void Destroy(SmartPointerTarget<DeleteOnDestruction> *_todestroy);
 };
 
 #include "SmartPointer.inl"

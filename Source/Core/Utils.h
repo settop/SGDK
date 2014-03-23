@@ -133,4 +133,27 @@ struct If<false, Then, Else>
 	typedef Else Value;
 };
 
+/*template <typename IntergralType>
+constexpr IntergralType Factorial(IntergralType _value)
+{
+	IntergralType ret = 1;
+	while(_value > 1)
+	{
+		ret *= _value;
+		--_value;
+	}
+	return ret;
+};
+
+template <typename NumericType>
+constexpr NumericType Factorial(NumericType _value, uint32 _pow)
+{
+	NumericType ret = 1;
+	for(uint32 i = 0; i <= _pow; ++i)
+	{
+		ret *= _value;
+	}
+	return ret;
+};*/
+
 #include "Utils.inl"

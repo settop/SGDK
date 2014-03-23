@@ -37,7 +37,11 @@ private:
 	};
 public:
 	TaskScheduler();
-	~TaskScheduler();		
+	~TaskScheduler();
+
+	void CreateThreads(uint32 _numThreads);
+	void StopAllThreads();
+	void JoinAllThreads();
 
 	template<typename T>
 	void AddTask(typename KernalInfo<T>::Kernal _kernal,T const &_data, TaskHandle *_taskHandle = nullptr);
@@ -47,6 +51,8 @@ public:
 	void WaitOnTask(TaskHandle *_handle);
 
 private:
+	void Run();
+
 	struct Task
 	{
 		TaskHandle *m_handle;
@@ -56,6 +62,9 @@ private:
 
 #pragma message("Need to use my own allocator for this")
 	boost::lockfree::queue<Task, boost::lockfree::capacity<Max_Tasks>/*, boost::lockfree::allocator<TaskAllocator>*/> m_queue;
+
+	boost::thread_group m_threads;
+	boost::atomic<bool> m_running;
 
 	//thread wait objects
 	boost::mutex m_mutex;

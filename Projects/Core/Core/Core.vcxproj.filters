@@ -5,6 +5,9 @@
     <ClInclude Include="..\..\..\Source\Core\TypeDefs.h" />
     <ClInclude Include="..\..\..\Source\Core\Utils.h" />
     <ClInclude Include="..\..\..\Source\Core\SmartPointer.h" />
+    <ClInclude Include="..\..\..\Source\Core\Phases\Phase.h">
+      <Filter>Phases</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\Source\Core\Utils.cpp" />
@@ -12,5 +15,13 @@
   <ItemGroup>
     <None Include="..\..\..\Source\Core\Utils.inl" />
     <None Include="..\..\..\Source\Core\SmartPointer.inl" />
+    <None Include="..\..\..\Source\Core\Phases\Phase.inl">
+      <Filter>Phases</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Phases">
+      <UniqueIdentifier>{f7bdfb87-37b9-4d24-abb2-c6652686675e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>

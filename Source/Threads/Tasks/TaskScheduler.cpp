@@ -9,7 +9,7 @@ static_assert( Max_Tasks < 65534 , "Max tasks must be less than 65534");
 
 TaskScheduler::TaskScheduler
 (
-)
+) : m_running(true)
 {
 
 }
@@ -18,7 +18,31 @@ TaskScheduler::~TaskScheduler
 (
 )
 {
+}
 
+void TaskScheduler::CreateThreads
+(
+	uint32 _numThreads
+)
+{
+	for(uint32 i = 0; i < _numThreads; ++i)
+	{
+		m_threads.create_thread(boost::bind(&TaskScheduler::Run, this));
+	}
+}
+
+void TaskScheduler::StopAllThreads
+(
+)
+{
+	m_running.store(false);
+}
+
+void TaskScheduler::JoinAllThreads
+(
+)
+{
+	m_threads.join_all();
 }
 
 bool TaskScheduler::DoOneTask
@@ -50,7 +74,19 @@ void TaskScheduler::WaitOnTask
 	{
 		if(!DoOneTask())
 		{
-			//failed to do a task, yield this thread
+			//boost::this_thread::yield();
+		}
+	}
+}
+
+void TaskScheduler::Run
+(
+)
+{
+	while(m_running.load())
+	{
+		if(!DoOneTask())
+		{			
 			boost::this_thread::yield();
 		}
 	}

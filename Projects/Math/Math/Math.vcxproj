@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{70A7C029-0F65-419A-AF0E-DEBD250A0EAA}</ProjectGuid>
+    <ProjectGuid>{EBC14368-6B3F-463A-AE41-CBFC5BC91B60}</ProjectGuid>
     <RootNamespace>Math</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />

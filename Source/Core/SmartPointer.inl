@@ -1,14 +1,14 @@
 #pragma once
 
-template <bool DestroyOnZeroRef>
-inline SmartPointerTarget<DestroyOnZeroRef>::SmartPointerTarget
+template <typename DestructionPolicy>
+inline SmartPointerTarget<DestructionPolicy>::SmartPointerTarget
 (
 ) : m_refCount(0u)
 {
 }
 
-template <bool DestroyOnZeroRef>
-inline SmartPointerTarget<DestroyOnZeroRef>::~SmartPointerTarget
+template <typename DestructionPolicy>
+SmartPointerTarget<DestructionPolicy>::~SmartPointerTarget
 (
 )
 {
@@ -16,33 +16,24 @@ inline SmartPointerTarget<DestroyOnZeroRef>::~SmartPointerTarget
 }
 
 
-template <bool DestroyOnZeroRef>
-inline void SmartPointerTarget<DestroyOnZeroRef>::Claim
+template <typename DestructionPolicy>
+inline void SmartPointerTarget<DestructionPolicy>::Claim
 (
 )
 {
 	++m_refCount;
 }
 
-template <bool DestroyOnZeroRef>
-inline void SmartPointerTarget<DestroyOnZeroRef>::Release
+template <typename DestructionPolicy>
+inline void SmartPointerTarget<DestructionPolicy>::Release
 (
 )
 {	
 	Assert(m_refCount > 0);
 	if(--m_refCount == 0);
 	{
-		delete this;
+		DestructionPolicy::Destroy(this);
 	}
-}
-
-template <>
-inline void SmartPointerTarget<false>::Release
-(
-)
-{	
-	Assert(m_refCount > 0);
-	--m_refCount;
 }
 
 
@@ -166,3 +157,14 @@ inline void SmartPointer<T>::Release
 		_ptr->Release();
 	}
 }
+
+
+
+
+inline void DeleteOnDestruction::Destroy
+(
+	SmartPointerTarget<DeleteOnDestruction> *_todestroy
+)
+{
+	delete _todestroy;
+};

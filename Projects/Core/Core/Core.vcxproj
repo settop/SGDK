@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{70A7C029-0F65-419A-AF0E-DEBD250A0EAA}</ProjectGuid>
+    <ProjectGuid>{D2DCEB83-CF98-4D54-9803-313D50B49543}</ProjectGuid>
     <RootNamespace>Core</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -62,28 +62,28 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <OutDir>$(ProjectDir)..\..\Libs\</OutDir>
-    <IncludePath>$(ProjectDir)..\..\..\Source;$(IncludePath)</IncludePath>
-    <LibraryPath>$(OutDir);$(LibraryPath)</LibraryPath>
+    <IncludePath>$(ProjectDir)..\..\..\Source;$(ProjectDir)..\..\..\External\boost_1_55_0;$(IncludePath)</IncludePath>
+     <LibraryPath>$(OutDir);$(LibraryPath)</LibraryPath>
     <SourcePath>$(ProjectDir)..\..\..\Source;$(SourcePath)</SourcePath>
     <TargetName>$(ProjectName).$(Configuration)</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>$(ProjectDir)..\..\Libs\</OutDir>
-    <IncludePath>$(ProjectDir)..\..\..\Source;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)..\..\..\Source;$(ProjectDir)..\..\..\External\boost_1_55_0;$(IncludePath)</IncludePath>
     <LibraryPath>$(OutDir);$(LibraryPath)</LibraryPath>
     <SourcePath>$(ProjectDir)..\..\..\Source;$(SourcePath)</SourcePath>
     <TargetName>$(ProjectName).$(Configuration)</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'">
     <OutDir>$(ProjectDir)..\..\Libs\</OutDir>
-    <IncludePath>$(ProjectDir)..\..\..\Source;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)..\..\..\Source;$(ProjectDir)..\..\..\External\boost_1_55_0;$(IncludePath)</IncludePath>
     <LibraryPath>$(OutDir);$(LibraryPath)</LibraryPath>
     <SourcePath>$(ProjectDir)..\..\..\Source;$(SourcePath)</SourcePath>
     <TargetName>$(ProjectName).$(Configuration)</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Final|Win32'">
     <OutDir>$(ProjectDir)..\..\Libs\</OutDir>
-    <IncludePath>$(ProjectDir)..\..\..\Source;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)..\..\..\Source;$(ProjectDir)..\..\..\External\boost_1_55_0;$(IncludePath)</IncludePath>
     <LibraryPath>$(OutDir);$(LibraryPath)</LibraryPath>
     <SourcePath>$(ProjectDir)..\..\..\Source;$(SourcePath)</SourcePath>
     <TargetName>$(ProjectName).$(Configuration)</TargetName>
@@ -143,6 +143,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\Source\Core\Core.h" />
+    <ClInclude Include="..\..\..\Source\Core\Phases\Phase.h" />
     <ClInclude Include="..\..\..\Source\Core\SmartPointer.h" />
     <ClInclude Include="..\..\..\Source\Core\TypeDefs.h" />
     <ClInclude Include="..\..\..\Source\Core\Utils.h" />
@@ -151,6 +152,7 @@
     <ClCompile Include="..\..\..\Source\Core\Utils.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\..\Source\Core\Phases\Phase.inl" />
     <None Include="..\..\..\Source\Core\SmartPointer.inl" />
     <None Include="..\..\..\Source\Core\Utils.inl" />
   </ItemGroup>
