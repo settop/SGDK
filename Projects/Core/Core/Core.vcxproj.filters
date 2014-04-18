@@ -8,6 +8,7 @@
     <ClInclude Include="..\..\..\Source\Core\Phases\Phase.h">
       <Filter>Phases</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\Source\Core\TypeTraits.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\Source\Core\Utils.cpp" />

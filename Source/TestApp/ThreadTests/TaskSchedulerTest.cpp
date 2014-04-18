@@ -2,7 +2,7 @@
 
 #include <Threads\Tasks\TaskScheduler.h>
 #include <Core\Phases\Phase.h>
-
+/*
 class TestPhase
 {
 public:
@@ -14,6 +14,7 @@ public:
 public:
 	Phase<DefaultPolicy>::Advancer<TestPhase, &TestPhase::DoAdvance>::Base Advancer;
 };
+*/
 
 namespace TaskSchedulerTest
 {
@@ -39,8 +40,8 @@ namespace TaskSchedulerTest
 	(
 	)
 	{
-		TestPhase testPhase;
-		testPhase.Advancer.Activate();
+		//TestPhase testPhase;
+		//testPhase.Advancer.Activate();
 
 
 		const uint32 threadCount = 4;
