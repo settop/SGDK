@@ -21,16 +21,6 @@ public:
 	void Free(void* _ptr);
 private:
 
-	struct Header
-	{
-		typename BoundsCheckingPolicy::FrontGuard m_guard;
-		typename AllocationPolicy::HeaderData m_header;
-	};
-	struct Footer
-	{
-		typename BoundsCheckingPolicy::RearGuard m_guard;
-	};
-
 	AllocationPolicy m_allocator;
 	ThreadPolicy m_threadGuard;
 	BoundsCheckingPolicy m_boundsChecker;

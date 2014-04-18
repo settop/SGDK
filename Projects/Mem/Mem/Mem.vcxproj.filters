@@ -18,6 +18,9 @@
     <None Include="..\..\..\Source\Mem\Allocator\Allocator.inl">
       <Filter>Allocator</Filter>
     </None>
+    <None Include="..\..\..\Source\Mem\Allocator\GlobalAllocationPolicy.inl">
+      <Filter>Allocator</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
   </ItemGroup>

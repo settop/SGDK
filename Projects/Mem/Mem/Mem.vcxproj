@@ -148,6 +148,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\Source\Mem\Allocator\Allocator.inl" />
+    <None Include="..\..\..\Source\Mem\Allocator\GlobalAllocationPolicy.inl" />
   </ItemGroup>
   <ItemGroup>
   </ItemGroup>
