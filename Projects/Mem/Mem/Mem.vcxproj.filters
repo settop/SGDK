@@ -13,6 +13,19 @@
     <ClInclude Include="..\..\..\Source\Mem\Allocator\GlobalAllocationPolicy.h">
       <Filter>Allocator</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\Source\Mem\Allocator\NoThreadPolicy.h">
+      <Filter>Allocator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Source\Mem\Allocator\SimpleBoundsCheckingPolicy.h">
+      <Filter>Allocator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Source\Mem\Allocator\NoMemoryTrackingPolicy.h">
+      <Filter>Allocator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Source\Mem\Allocator\SimpleMemoryTaggingPolicy.h">
+      <Filter>Allocator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Source\Mem\Mem.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\Source\Mem\Allocator\Allocator.inl">
@@ -21,7 +34,14 @@
     <None Include="..\..\..\Source\Mem\Allocator\GlobalAllocationPolicy.inl">
       <Filter>Allocator</Filter>
     </None>
+    <None Include="..\..\..\Source\Mem\Allocator\SimpleBoundsCheckingPolicy.inl">
+      <Filter>Allocator</Filter>
+    </None>
+    <None Include="..\..\..\Source\Mem\Allocator\SimpleMemoryTaggingPolicy.inl">
+      <Filter>Allocator</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\Source\Mem\Mem.cpp" />
   </ItemGroup>
 </Project>

@@ -145,12 +145,20 @@
     <ClInclude Include="..\..\..\Source\Mem\AllocationParams.h" />
     <ClInclude Include="..\..\..\Source\Mem\Allocator\Allocator.h" />
     <ClInclude Include="..\..\..\Source\Mem\Allocator\GlobalAllocationPolicy.h" />
+    <ClInclude Include="..\..\..\Source\Mem\Allocator\NoMemoryTrackingPolicy.h" />
+    <ClInclude Include="..\..\..\Source\Mem\Allocator\NoThreadPolicy.h" />
+    <ClInclude Include="..\..\..\Source\Mem\Allocator\SimpleBoundsCheckingPolicy.h" />
+    <ClInclude Include="..\..\..\Source\Mem\Allocator\SimpleMemoryTaggingPolicy.h" />
+    <ClInclude Include="..\..\..\Source\Mem\Mem.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\Source\Mem\Allocator\Allocator.inl" />
     <None Include="..\..\..\Source\Mem\Allocator\GlobalAllocationPolicy.inl" />
+    <None Include="..\..\..\Source\Mem\Allocator\SimpleBoundsCheckingPolicy.inl" />
+    <None Include="..\..\..\Source\Mem\Allocator\SimpleMemoryTaggingPolicy.inl" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\Source\Mem\Mem.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -66,17 +66,18 @@
 
 //---------------------------------------------------------------------------------
 
+enum eStaticInitLayer
+{
+	eStaticInitLayer_Heap,
+	eStaticInitLayer_Core,
+	eStaticInitLayer_Other,
+
+	eStaticInitLayer_Num
+};
+
 class StaticInitableBase
 {
 public:
-	enum eStaticInitLayer
-	{
-		eStaticInitLayer_Heap,
-		eStaticInitLayer_Core,
-		eStaticInitLayer_Other,
-
-		eStaticInitLayer_Num
-	};
 	static void StaticInit();
 	static void StaticShutdown();
 protected:
@@ -106,54 +107,5 @@ class StaticInitable
 private:
 	static StaticInitableClass<T, Layer> s_staticInitable;
 };
-
-//---------------------------------------------------------------------------------
-
-struct True{ char blank[1]; };
-struct False{ char blank[2]; };
-struct Null{};
-
-template<typename Test, typename Base>
-struct IsDerivedFrom
-{
-	template<typename T>
-	False Check( T* );
-	True Check( Base* );
-	static const bool Value = sizeof(Check((Test*)nullptr)) == sizeof(True);
-};
-
-template<bool IF, typename Then, typename Else>
-struct If
-{
-	typedef Then Value;
-};
-template<typename Then, typename Else>
-struct If<false, Then, Else>
-{
-	typedef Else Value;
-};
-
-/*template <typename IntergralType>
-constexpr IntergralType Factorial(IntergralType _value)
-{
-	IntergralType ret = 1;
-	while(_value > 1)
-	{
-		ret *= _value;
-		--_value;
-	}
-	return ret;
-};
-
-template <typename NumericType>
-constexpr NumericType Factorial(NumericType _value, uint32 _pow)
-{
-	NumericType ret = 1;
-	for(uint32 i = 0; i <= _pow; ++i)
-	{
-		ret *= _value;
-	}
-	return ret;
-};*/
 
 #include "Utils.inl"

@@ -5,11 +5,11 @@
 void* GlobalAllocationPolicy::Allocate
 (
 	size_t _size,
-	size_t _alignement,
+	size_t _alignment,
 	size_t _alignmentOffset
 )
 {
-
+	return _aligned_offset_malloc(_size, _alignment, _alignmentOffset);
 }
 
 void GlobalAllocationPolicy::Free
@@ -17,7 +17,7 @@ void GlobalAllocationPolicy::Free
 	void* _ptr
 )
 {
-	free(_ptr);
+	_aligned_free(_ptr);
 }
 
 size_t GlobalAllocationPolicy::GetAllocationSize

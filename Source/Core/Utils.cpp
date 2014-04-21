@@ -1,6 +1,6 @@
 #include "Utils.h"
 
-StaticInitableBase *StaticInitableBase::s_layerStart[StaticInitableBase::eStaticInitLayer_Num] = {nullptr, nullptr, nullptr};
+StaticInitableBase *StaticInitableBase::s_layerStart[eStaticInitLayer_Num] = {nullptr, nullptr, nullptr};
 
 void StaticInitableBase::StaticInit
 (
@@ -20,9 +20,9 @@ void StaticInitableBase::StaticShutdown
 (
 )
 {
-	for(uint32 i = 0; i < eStaticInitLayer_Num; ++i)
+	for( uint32 i = eStaticInitLayer_Num; i > 0; --i )
 	{
-		StaticInitableBase *next = s_layerStart[i];
+		StaticInitableBase *next = s_layerStart[i - 1];
 		while(next)
 		{
 			next->_StaticShutdown();

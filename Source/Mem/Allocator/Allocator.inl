@@ -20,7 +20,8 @@ template<typename AllocationPolicy,typename ThreadPolicy,typename BoundsChecking
 void* Allocator<AllocationPolicy, ThreadPolicy, BoundsCheckingPolicy, MemoryTrackingPolicy, MemoryTaggingPolicy>::Allocate
 (
 	size_t _size,
-	size_t _alignment,
+	size_t _alignment, 
+	size_t _alignmentOffset,
 	AllocationParams _allocationParams
 )
 {
@@ -29,7 +30,7 @@ void* Allocator<AllocationPolicy, ThreadPolicy, BoundsCheckingPolicy, MemoryTrac
 	const size_t originalSize = size;
 	const size_t newSize = size + BoundsCheckingPolicy::SIZE_FRONT + BoundsCheckingPolicy::SIZE_BACK;
 
-	char* plainMemory = static_cast<char*>(m_allocator.Allocate(newSize, alignment, BoundsCheckingPolicy::SIZE_FRONT));
+	char* plainMemory = static_cast<char*>(m_allocator.Allocate(newSize, alignment, _alignmentOffset + BoundsCheckingPolicy::SIZE_FRONT));
 
 	m_boundsChecker.GuardFront(plainMemory);
 	m_memoryTagger.TagAllocation(plainMemory + BoundsCheckingPolicy::SIZE_FRONT, originalSize);

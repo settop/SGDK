@@ -1,6 +1,5 @@
 #pragma once
 
-#include "AllocatorDefs.h"
 #include <Mem/AllocationParams.h>
 
 template 
@@ -17,7 +16,7 @@ public:
 	Allocator();
 	Allocator(AllocationPolicy const &_allocationPolicy);
 
-	void* Allocate(size_t _size, size_t _alignment, AllocationParams _allocationParams);
+	void* Allocate(size_t _size, size_t _alignment, size_t _alignmentOffset, AllocationParams _allocationParams);
 	void Free(void* _ptr);
 private:
 
