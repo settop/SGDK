@@ -2,10 +2,12 @@
 
 #include <Core/TypeTraits.h>
 
-#ifdef S_DEBUGGING
-#define AllocationTracking (1)
-#else
-#define AllocationTracking (0)
+#ifndef AllocationTracking
+	#ifdef S_DEBUGGING
+		#define AllocationTracking (1)
+	#else
+		#define AllocationTracking (0)
+	#endif
 #endif
 
 #if AllocationTracking
@@ -31,6 +33,6 @@ struct AllocationParams
 	char const * const m_function;
 	char const * const m_type;
 #else
-	inline AllocationParams(char const *_file, int _line, char const *_function, char const *_type){}
+	inline AllocationParams(char const*, int, char const*, char const*){}
 #endif
 };

@@ -71,8 +71,28 @@ inline SmartPointer<T>::SmartPointer
 	SmartPointer<O> const &_other
 ) : m_ptr(_other.m_ptr)
 {
-	static_assert(IsDerivedFrom<O, T>::Value, "Type O must derive from type T");
+	static_assert( std::<O, T>::Value, "Type O must derive from type T");
 	Claim(m_ptr);
+}
+
+template <typename T>
+inline SmartPointer<T>::SmartPointer
+(
+	SmartPointer<T> &&_other
+) : m_ptr( _other.m_ptr )
+{
+	_other.m_ptr = nullptr;
+}
+
+template <typename T>
+template <typename O>
+inline SmartPointer<T>::SmartPointer
+(
+	SmartPointer<O> &&_other
+) : m_ptr( _other.m_ptr )
+{
+	other.m_ptr = nullptr;
+	static_assert( std::IsDerivedFrom<O, T>::Value, "Type O must derive from type T" );
 }
 
 

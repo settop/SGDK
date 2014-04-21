@@ -22,11 +22,11 @@
 //inlcude memory tagging policies
 #include <Mem/Allocator/SimpleMemoryTaggingPolicy.h>
 
-#define NEW(_Allocator, _Type) new(_Allocator.Allocate(sizeof(_Type), std::alignment_of<_Type>::value, 0u, CreateAllocParams(_Type))) _Type
-#define DELETE(_Allocator, _Ptr) _Private_Mem::Delete(_Allocator, _Ptr); _Ptr = nullptr
+#define S_NEW(_Allocator, _Type) new(_Allocator.Allocate(sizeof(_Type), std::alignment_of<_Type>::value, 0u, CreateAllocParams(_Type))) _Type
+#define S_DELETE(_Allocator, _Ptr) _Private_Mem::Delete(_Allocator, _Ptr); _Ptr = nullptr
 
-#define ARRAY_NEW(_Allocator, _TypeAndCount) _Private_Mem::NewArray<std::remove_extent<_TypeAndCount>::type>(_Allocator, std::extent<_TypeAndCount>::value, std::alignment_of<std::remove_extent<_TypeAndCount>::type>::value, CreateAllocParams(std::remove_extent<_TypeAndCount>::type))
-#define ARRAY_DELETE(_Allocator, _Ptr) _Private_Mem::DeleteArray(_Allocator, _Ptr); _Ptr = nullptr
+#define S_ARRAY_NEW(_Allocator, _TypeAndCount) _Private_Mem::NewArray<std::remove_extent<_TypeAndCount>::type>(_Allocator, std::extent<_TypeAndCount>::value, std::alignment_of<std::remove_extent<_TypeAndCount>::type>::value, CreateAllocParams(std::remove_extent<_TypeAndCount>::type))
+#define S_ARRAY_DELETE(_Allocator, _Ptr) _Private_Mem::DeleteArray(_Allocator, _Ptr); _Ptr = nullptr
 
 namespace _Private_Mem
 {

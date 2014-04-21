@@ -2,6 +2,7 @@
 
 #include <Core/TypeDefs.h>
 #include <Core/Utils.h>
+#include <Core/TypeTraits.h>
 
 struct DeleteOnDestruction;
 
@@ -24,9 +25,14 @@ class SmartPointer
 public:
 	inline SmartPointer();
 	inline SmartPointer(T *_ptr);
+	//copy constructors
 	inline SmartPointer(SmartPointer<T> const &_other);
 	template <typename O>
 	inline SmartPointer(SmartPointer<O> const &_other);
+	//move constructors
+	inline SmartPointer( SmartPointer<T> &&_other );
+	template <typename O>
+	inline SmartPointer( SmartPointer<O> &&_other );
 	 
 	inline ~SmartPointer();
 

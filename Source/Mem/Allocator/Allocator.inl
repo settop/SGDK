@@ -1,15 +1,16 @@
 #pragma once
 
+#define AllocatorTemplateParams AllocationPolicy, ThreadPolicy, BoundsCheckingPolicy, MemoryTrackingPolicy, MemoryTaggingPolicy
 
 template<typename AllocationPolicy, typename ThreadPolicy, typename BoundsCheckingPolicy, typename MemoryTrackingPolicy, typename MemoryTaggingPolicy>
-Allocator::Allocator
+Allocator<AllocatorTemplateParams>::Allocator
 (
 )
 {
 }
 
 template<typename AllocationPolicy, typename ThreadPolicy, typename BoundsCheckingPolicy, typename MemoryTrackingPolicy, typename MemoryTaggingPolicy>
-Allocator::Allocator
+Allocator<AllocatorTemplateParams>::Allocator
 (
 	AllocationPolicy const &_allocationPolicy
 ) : m_allocator(_allocationPolicy)
@@ -17,7 +18,7 @@ Allocator::Allocator
 }
 
 template<typename AllocationPolicy,typename ThreadPolicy,typename BoundsCheckingPolicy,typename MemoryTrackingPolicy,typename MemoryTaggingPolicy>
-void* Allocator<AllocationPolicy, ThreadPolicy, BoundsCheckingPolicy, MemoryTrackingPolicy, MemoryTaggingPolicy>::Allocate
+void* Allocator<AllocatorTemplateParams>::Allocate
 (
 	size_t _size,
 	size_t _alignment, 
@@ -43,7 +44,7 @@ void* Allocator<AllocationPolicy, ThreadPolicy, BoundsCheckingPolicy, MemoryTrac
 }
 
 template<typename AllocationPolicy, typename ThreadPolicy, typename BoundsCheckingPolicy, typename MemoryTrackingPolicy, typename MemoryTaggingPolicy>
-void Allocator<AllocationPolicy, ThreadPolicy, BoundsCheckingPolicy, MemoryTrackingPolicy, MemoryTaggingPolicy>::Free
+void Allocator<AllocatorTemplateParams>::Free
 (
 	void* _ptr
 )
@@ -64,3 +65,5 @@ void Allocator<AllocationPolicy, ThreadPolicy, BoundsCheckingPolicy, MemoryTrack
 
 	m_threadGuard.Leave();
 }
+
+#undef AllocatorTemplaeParams
